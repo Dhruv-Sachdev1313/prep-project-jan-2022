@@ -1,0 +1,44 @@
+import React from 'react';
+import Carousel from 'react-material-ui-carousel';
+import { Paper, Button } from '@mui/material'
+
+function Item(props){
+
+const {item} = props;
+
+    return (
+        <Paper>
+            <h2>{item.name}</h2>
+            <p>{item.description}</p>
+
+            <Button className="CheckButton">
+                Check it out!
+            </Button>
+        </Paper>
+    )
+}
+
+function HourlyCarousel(props) {
+
+    const items = [
+        {
+            name: "Random Name #1",
+            description: "Probably the most random thing you have ever seen!"
+        },
+        {
+            name: "Random Name #2",
+            description: "Hello World!"
+        }
+    ]
+
+
+  return (
+        <Carousel>
+            {
+                items.map( (item, i) => <Item key={item.name} item={item} /> )
+            }
+        </Carousel>
+    )
+}
+
+export default HourlyCarousel;
